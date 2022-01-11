@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    text-align: center;
+    background: url("img/backgorund.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+.wrapper{
+
+}
+canvas{
+    height: 100%;
+    width: 63.3%;
+    background-color: #42433e;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.center{
+  height: 41em;
+    width: 76%;
+    position: absolute;
+    top: 15%;
+    left: 15%;
+}
