@@ -237,6 +237,12 @@ function drawIt() {
       clearTimeout(drawIt);
   }
 }
-setInterval(drawIt, 60);
 
 
+Swal.fire({
+  title: 'Formula 1 maze animation',
+  confirmButtonText: 'Start animation!',
+  confirmButtonColor: '#42433e',
+}).then((result) => {
+  setInterval(drawIt, 60);
+})
