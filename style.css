@@ -24,9 +24,10 @@ canvas{
   }
   .naslov{
     position: absolute;
-    top: 0px;
+    top: 1em;
     height: 10%;
     width: 100%;
     color: white;
     font-size: 3em;
+    font-family: "Monaco", monospace;
   }
