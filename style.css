@@ -8,10 +8,6 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
   }
-
-.wrapper{
-
-}
 canvas{
     height: 100%;
     width: 63.3%;
@@ -25,4 +21,12 @@ canvas{
     position: absolute;
     top: 15%;
     left: 15%;
-}
+  }
+  .naslov{
+    position: absolute;
+    top: 0px;
+    height: 10%;
+    width: 100%;
+    color: white;
+    font-size: 3em;
+  }
