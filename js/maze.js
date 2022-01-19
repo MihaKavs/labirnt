@@ -15,8 +15,7 @@ drawIt();
 var y = 0;
 var x = 390;
 var rot = 1;
-var car = new Image();
-car.src = "img/car.png";
+var pit = 0;
 function drawIt() {
   var car = new Image();
   car.src = "img/car.png";
@@ -26,17 +25,17 @@ function drawIt() {
   left.src = "img/left.png";
   var up = new Image();
   up.src = "img/up.png";
-  ctx.clearRect(x - 8, y - 8, 46, 46);
+  ctx.clearRect(x - 11, y - 11, 40, 40);
   if (rot == 1) {
-    ctx.drawImage(car, x - 5, y - 5, 30, 40);
+    ctx.drawImage(car, x - 5, y - 5, 15, 30);
   } else if (rot == 2) {
-    ctx.drawImage(right, x - 5, y - 5, 40, 30);
+    ctx.drawImage(right, x - 5, y - 5, 30, 15);
   }
   else if (rot == 3) {
-    ctx.drawImage(left, x - 5, y - 5, 40, 30);
+    ctx.drawImage(left, x - 5, y - 5, 30, 15);
   }
   else if (rot == 4) {
-    ctx.drawImage(up, x - 5, y - 5, 30, 40);
+    ctx.drawImage(up, x - 5, y - 5, 15, 30);
   }
   make_base();
   if (x == 390 && y >= 0 && y <= 10) {
@@ -47,18 +46,18 @@ function drawIt() {
     y += 0.5;
     rot = 1;
   }
-  if (x == 390 && y >= 24 && y <= 65) {
+  if (x == 390 && y >= 24 && y <= 70) {
     y += 0.8;
     rot = 1;
-    if(y > 64.5){
-      y = 65;
+    if(y > 70.5){
+      y = 70;
     }
   }
-  if (y == 65 && x >= 390 && x <= 440) {
+  if (y == 70 && x >= 390 && x <= 440) {
     x += 2;
     rot = 2;
   }
-  if (x == 440 && y >= 65 && y <= 175) {
+  if (x == 440 && y >= 70 && y <= 175) {
     y += 2.5;
     rot = 1;
     if(y == 176)
@@ -68,54 +67,55 @@ function drawIt() {
     x += 2.5;
     rot = 2;
   }
-  if (x == 495 && y >= 175 && y <= 225) {
+  if (x == 495 && y >= 175 && y <= 235) {
     y += 3;
     rot = 1;
-    if(y == 226)
-      y = 225;
   }
   //right
-  if (y == 225 && x >= 495 && x <= 545) {
+  if (y == 235 && x >= 495 && x <= 560) {
     x += 3;
     rot = 2;
-    if(x == 546)
-      x = 545
+    if(x == 561)
+      x = 560;
   }
   //down
-  if (x == 545 && y >= 225 && y <= 300) {
+  if (x == 560 && y >= 235 && y <= 300) {
     y += 3;
     rot = 1;
-    
+    if(y == 301)
+      y = 303;
   }
-  if (x == 545 && y >= 303 && y <= 315) {
+  if (x == 560 && y >= 303 && y <= 315) {
     y += 2;
     rot = 1;
   }
-  if (x == 545 && y >= 317 && y <= 325) {
+  if (x == 560 && y >= 317 && y <= 329) {
     y += 1.5;
     rot = 1;
-    if(y == 326)
-      y = 325;
+    if(y == 330.5)
+      y = 330;
   }
   //left
-  if (y == 325 && x <= 545 && x >= 495) {
+  if (y == 330 && x <= 560 && x >= 494) {
     x -= 1.5;
     rot = 3;
     if(x == 494)
       x = 495;
   }
   //up
-  if (x == 495 && y <= 325 && y >= 275) {
+  if (x == 495 && y <= 330 && y >= 285) {
     y -= 2;
     rot = 4;
+    if(y == 286)
+      y = 285;
   }
-  if (y == 275 && x <= 495 && x >= 445) {
+  if (y == 285 && x <= 495 && x >= 445) {
     x -= 1.5;
     rot = 3;
     if(x == 444)
       x = 445;
   }
-  if (x == 445 && y >= 275 && y <= 291) {
+  if (x == 445 && y >= 285 && y <= 291) {
     y += 2;
     rot = 1;
   }
@@ -125,7 +125,7 @@ function drawIt() {
   }
   if (x == 445 && y >= 325 && y <= 445) {
     if(y == 326)
-    ctx.clearRect(x - 8, y - 8, 46, 46);
+    ctx.clearRect(x - 8, y - 8, 36, 36);
     y += 4;
     rot = 1;
     if(y == 446)
@@ -143,47 +143,70 @@ function drawIt() {
     y += 2;
     rot = 1;
   }
-  if (y == 495 && x <= 495 && x >= 435) {
+  if (y == 495 && x <= 495 && x >= 440) {
     x -= 2;
     rot = 3;
+    if(x == 441)
+      x = 440;
   }
-  if (x == 435 && y >= 495 && y <= 545) {
+  if (x == 440 && y >= 495 && y <= 545) {
     y += 2;
     rot = 1;
   }
-  if (y == 545 && x <= 435 && x >= 385) {
+  if (y == 545 && x <= 440 && x >= 385) {
+
     x -= 2;
     rot = 3;
+    if(x == 384){
+      x = 385;
+      box();
+    }
   }
-  if (x == 385 && y <= 545 && y >= 435) {
+  if (x == 385 && y <= 545 && y >= 440) {
     y -= 3;
     rot = 4;
-    if(y == 434)
-      y = 435;
   }
-  if (y == 435 && x <= 385 && x >= 285) {
+  if (y == 440 && x <= 385 && x >= 285) {
     x -= 3.5;
     rot = 3;
     if(x == 283.5)
       x = 285
   }
   //pit
-  if (x == 285 && y <= 435 && y >= 325) {
-    y -= 3;
+  if (x == 285 && y <= 440 && y >= 402 && pit == 0) {
+    y -= 2;
     rot = 4;
-    if(y == 324)
-    y = 325;
-    
   }
-  if (y == 325 && x <= 285 && x >= 230) {
+  if(y == 400 && x <=285 && x >= 220 && pit == 0){
+    x -= 1;
+    rot = 3;
+    if(x == 220){
+      clearInterval(myInterval);
+      var pitbox = setTimeout(start, 2400);
+      pit = 1;
+    }
+  }
+  if(y == 400 && x <=284 && x >= 220 && pit == 1){
+    x += 1;
+    rot = 2;
+  }
+  if (x == 285 && y <= 440 && y >= 336 && pit == 1) {
+    y -= 2;
+    rot = 4;
+    if(y == 334)
+      y = 335;
+  }
+  if (y == 335 && x <= 285 && x >= 230) {
     x -= 3;
     rot = 3;
     if(x == 228)
       x = 230
   }
-  if (x == 230 && y <= 325 && y >= 244) {
+  if (x == 230 && y <= 335 && y >= 244) {
     y -= 3;
     rot = 4;
+    if(y == 245)
+      y = 244
   }
   if (x == 230 && y <= 241 && y >= 231) {
     y -= 2;
@@ -201,17 +224,19 @@ function drawIt() {
     if(x == 179)
       x = 180;
   }
-  if (x == 180 && y >= 225 && y <= 275) {
+  if (x == 180 && y >= 225 && y <= 285) {
     y += 2;
     rot = 1;
   }
-  if (y == 275 && x <= 180 && x >= 75) {
+  if (y == 285 && x <= 180 && x >= 75) {
     x -= 3;
     rot = 3;
   }
-  if (x == 75 && y >= 275 && y <= 395) {
+  if (x == 75 && y >= 285 && y <= 395) {
     y += 3;
     rot = 1;
+    if(y == 396)
+      y = 395;
   }
   if (y == 395 && x <= 75 && x >= 20) {
     x -= 3;
@@ -253,51 +278,55 @@ function drawIt() {
     if(x == 14)
       x = 15;
   }
-  if (x == 15 && y >= 600 && y <= 650) {
+  if (x == 15 && y >= 600 && y <= 660) {
     y += 1.5;
     rot = 1;
-    if(y == 651)
-      y = 650;
   }
-  if (y == 650 && x >= 15 && x <= 31) {
+  if (y == 660 && x >= 15 && x <= 31) {
     x += 2;
     rot = 2;
   }
-  if (y == 650 && x >= 33 && x <= 120) {
+  if (y == 660 && x >= 33 && x <= 120) {
     x += 3;
     rot = 2;
   }
-  if (x == 120 && y >= 650 && y <= 700) {
+  if (x == 120 && y >= 660 && y <= 710) {
     y += 3;
     rot = 1;
-    if(y == 701)
-      y = 700;
+    if(y == 708)
+      y = 710;
   }
-  if (y == 700 && x >= 120 && x <= 280) {
+  if (y == 710 && x >= 120 && x <= 290) {
     x += 4;
     rot = 2;
+    if(x == 288)
+      x = 290;
   }
-  if (x == 280 && y >= 700 && y <= 748) {
+  if (x == 290 && y >= 710 && y <= 748) {
     y += 3;
     rot = 1;
   }
-  if (x == 280 && y >= 751 && y <= 760) {
+  if (x == 290 && y >= 749 && y <= 760) {
     y += 2;
     rot = 1;
     if(y == 761)
       y = 760;
   }
-  if (y == 760 && x >= 280 && x <= 340) {
+  if (y == 760 && x >= 290 && x <= 340) {
     x += 1.5;
     rot = 2;
+    if(x == 341)
+      x = 340;
   }
   if (x == 340 && y <= 760 && y >= 710) {
     y -= 2;
     rot = 4;
+    console.log(y);
   }
   if (y == 710 && x >= 340 && x <= 390) {
     x += 2;
     rot = 2;
+    console.log(x);
   }
   if (x == 390 && y <= 710 && y >= 660) {
     y -= 2;
@@ -331,7 +360,6 @@ function drawIt() {
 }
 function start(){
   window.myInterval = setInterval(drawIt, 60);
-  clearTimeout(myTimeout);
 }
 function restart(){
   clearInterval(window.myInterval);
@@ -345,12 +373,17 @@ Swal.fire({
 }).then((result) => {
   var audio = new Audio('sound/lights.mp3');
   audio.play();
+  tyre();
   console.log(1);
   var myTimeout = setTimeout(start, 5500);
   console.log(2);
   var playstart = setTimeout(playStart, 600);
-
 })
+function tyre(){
+  var car = new Image();
+  car.src = "img/car.png";
+  ctx.drawImage(car, x - 5, y - 5, 15, 30);
+}
 function playStart(){
   var start = new Audio('sound/start.mp3');
   start.play();
@@ -360,13 +393,22 @@ function clear(){
   clearTimeout(myTimeout2);
   clearInterval(myInterval);
 }
+function box(){
+  var box = new Audio('sound/box.mp3');
+  box.play();
+}
 
 function finish() {
+  sound.pause();
+  sound.currentTime = 0;
+  var win = new Audio('sound/win.mp3');
+  win.play();
   Swal.fire({
     title: 'You finished P1!',
     confirmButtonText: 'Start again',
     confirmButtonColor: '#42433e',
   }).then((result) => {
+    pit = 0;
     x = 390;
     y = 0;
     var audio = new Audio('sound/lights.mp3');
