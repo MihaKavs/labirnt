@@ -370,6 +370,7 @@ Swal.fire({
   title: 'Formula 1 maze animation',
   confirmButtonText: 'Start animation!',
   confirmButtonColor: '#42433e',
+  closeOnClickOutside: false,
 }).then((result) => {
   var audio = new Audio('sound/lights.mp3');
   audio.play();
@@ -398,6 +399,7 @@ function finish() {
     title: 'You finished P1!',
     confirmButtonText: 'Start again',
     confirmButtonColor: '#42433e',
+    closeOnClickOutside: false,
   }).then((result) => {
     pit = 0;
     x = 390;
