@@ -32,8 +32,11 @@ var pos = 0;
 var end = 0;
 var dir = 0;
 function arrThrough() {
-  if (pos == arr[1].length - 1 && lap == 4)
+  if (pos == arr[1].length - 1 && lap == 4){
+    var song1 = document.getElementById("sound1");
+    song1.pause();
     finish();
+  }
   else if (pos == arr[1].length && lap == 4)
     return;
   if (pos == arr[1].length && lap != 4) {
@@ -129,15 +132,15 @@ function gleft() {
   }
 }
 
+function daddydilan(){
+  song1.play();
+}
 
 window.safetycar = new Audio('sound/safetycar.m4a');
 window.safetycarin = new Audio('sound/in.m4a');
-function audioLoop() {
-  window.noise = new Audio('sound/start.mp3');
-  noise.loop = true;
-}
+
 function start() {
-  audioLoop();
+
   arrThrough();
 }
 function restart() {
@@ -162,6 +165,8 @@ Swal.fire({
 }).then((result) => {
   var audio = new Audio('sound/lights.mp3');
   audio.play();
+  var song1 = document.getElementById("sound1");
+  song1.play();
   setTimeout(() => { document.getElementById("ena").style.backgroundColor = "red" }, 550);
   setTimeout(() => { document.getElementById("2").style.backgroundColor = "red" }, 1550);
   setTimeout(() => { document.getElementById("3").style.backgroundColor = "red" }, 2550);
@@ -170,12 +175,7 @@ Swal.fire({
   setTimeout(clearLights, 5500);
   document.getElementById("lapsDisplay").innerHTML = lap + "/4";
   var myTimeout = setTimeout(start, 5500);
-  var playstart = setTimeout(playStart, 600);
 })
-function playStart() {
-  var start = new Audio('sound/start.mp3');
-  start.play();
-}
 function finish() {
   var win = new Audio('sound/win.mp3');
   win.play();
@@ -187,6 +187,8 @@ function finish() {
   }).then((result) => {
     x = 390;
     y = 0;
+    var song1 = document.getElementById("sound1");
+    song1.play();
     var audio = new Audio('sound/lights.mp3');
     audio.play();
     setTimeout(() => { document.getElementById("ena").style.backgroundColor = "red" }, 550);
@@ -196,6 +198,5 @@ function finish() {
     setTimeout(() => { document.getElementById("5").style.backgroundColor = "red" }, 4550);
     setTimeout(clearLights, 5500);
     var myTimeout = setTimeout(restart, 5500);
-    var playstart = setTimeout(playStart, 600);
   })
 }
